@@ -19,8 +19,8 @@ See 'snap info docker' for additional versions.
 
 # Решение 0
 
-[1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.JPG);
-[1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.1.JPG);
+![1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.JPG);
+![1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.1.JPG);
 
 # Задача 1
 
@@ -42,11 +42,11 @@ See 'snap info docker' for additional versions.
 
 # Решение 1
 
-[1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.0.JPG);
-[1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.1.JPG);
-[1.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.2.JPG);
-[1.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.3.JPG);
-[1.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.JPG);
+![1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.0.JPG);
+![1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.1.JPG);
+![1.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.2.JPG);
+![1.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.3.JPG);
+![1.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.JPG);
 
 Задача 2 (*)
 
@@ -67,14 +67,14 @@ db. image=mysql:8. Контейнер должен работать в bridge-с
 
 # Решение 3
 
-[3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.JPG);
-[3.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.1.JPG);
-[3.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.2.JPG);
-[3.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.3.JPG);
-[3.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.4.JPG);
-[3.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.5.JPG);
-[3.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.6.JPG);
-[3.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.7.JPG);
+![3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.JPG);
+![3.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.1.JPG);
+![3.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.2.JPG);
+![3.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.3.JPG);
+![3.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.4.JPG);
+![3.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.5.JPG);
+![3.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.6.JPG);
+![3.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.7.JPG);
 
 # Задача 4
 Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
@@ -86,13 +86,13 @@ db. image=mysql:8. Контейнер должен работать в bridge-с
 
 # Решение 4
 
-[4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.1.JPG);
-[4.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.2.JPG);
-[4.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.3.JPG);
-[4.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.4.JPG);
-[4.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.5.JPG);
-[4.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.JPG);
-[4.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.6.JPG);
+![4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.1.JPG);
+![4.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.2.JPG);
+![4.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.3.JPG);
+![4.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.4.JPG);
+![4.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.5.JPG);
+![4.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.JPG);
+![4.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.6.JPG);
 
 Задача 5 (*)
 
@@ -101,10 +101,10 @@ db. image=mysql:8. Контейнер должен работать в bridge-с
 
 # Решение
 
-[6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.JPG);
-[6.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.1.JPG);
-[6.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.2.JPG);
-[6.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.3.JPG);
+![6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.JPG);
+![6.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.1.JPG);
+![6.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.2.JPG);
+![6.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.3.JPG);
 
 
 
