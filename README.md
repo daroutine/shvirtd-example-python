@@ -1,6 +1,3 @@
-https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.JPG
-
-
 # Домашнее задание к занятию 5. «Практическое применение Docker»
 
 
@@ -48,9 +45,9 @@ See 'snap info docker' for additional versions.
 ![1.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.3.JPG);
 ![1.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.JPG);
 
-Задача 2 (*)
+# Задача 2 (*)
 
-Задача 3
+# Задача 3
 
 Изучите файл "proxy.yaml"
 Создайте в репозитории с проектом файл compose.yaml. С помощью директивы "include" подключите к нему файл "proxy.yaml".
@@ -71,7 +68,6 @@ db. image=mysql:8. Контейнер должен работать в bridge-с
 ![3.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.1.JPG);
 ![3.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.2.JPG);
 ![3.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.3.JPG);
-![3.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.4.JPG);
 ![3.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.5.JPG);
 ![3.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.6.JPG);
 ![3.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.7.JPG);
@@ -94,7 +90,7 @@ db. image=mysql:8. Контейнер должен работать в bridge-с
 ![4.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.JPG);
 ![4.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.6.JPG);
 
-Задача 5 (*)
+# Задача 5 (*)
 
 # Задача 6
 Скачайте docker образ hashicorp/terraform:latest и скопируйте бинарный файл /bin/terraform на свою локальную машину, используя dive и docker save. Предоставьте скриншоты действий .
