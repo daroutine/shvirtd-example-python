@@ -1,96 +1,116 @@
-# shvirtd-example-python
+https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.JPG
 
-Учебный проект FastAPI-приложения для изучения Docker Compose.
 
-## Описание проекта
+# Домашнее задание к занятию 5. «Практическое применение Docker»
 
-Это простое веб-приложение на FastAPI, предназначенное для изучения контейнеризации и работы с Docker Compose. Приложение демонстрирует:
 
-- Создание веб-сервиса на FastAPI
-- Подключение к базе данных MySQL
-- Работу с прокси-серверами (Nginx → HAProxy → FastAPI)
-- Корректную настройку сетей Docker
-- Передачу IP-адресов через заголовки прокси
+Задача 0
+Убедитесь что у вас НЕ(!) установлен docker-compose, для этого получите следующую ошибку от команды docker-compose --version
+Command 'docker-compose' not found, but can be installed with:
 
-### Функциональность
+sudo snap install docker          # version 24.0.5, or
+sudo apt  install docker-compose  # version 1.25.0-1
 
-При обращении к главной странице приложение:
-1. Определяет IP-адрес клиента
-2. Записывает время запроса и IP-адрес в базу данных MySQL
-3. Возвращает эту информацию пользователю
+See 'snap info docker' for additional versions.
+В случае наличия установленного в системе docker-compose - удалите его.
+2. Убедитесь что у вас УСТАНОВЛЕН docker compose(без тире) версии не менее v2.24.X, для это выполните команду docker compose version
 
-**Важно для обучения:** Если обращаться к приложению напрямую (минуя прокси), вы получите подсказку о неправильном выполнении задания.
+Своё решение к задачам оформите в вашем GitHub репозитории!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-## Способы запуска
+# Решение 0
 
-### 1. Запуск через Docker Compose
+[1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.JPG);
+[1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/0.1.JPG);
 
-**Архитектура при запуске через Docker Compose:**
-```
-Клиент → Nginx (8090) → HAProxy (8080) → FastAPI App (5000) → MySQL
-```
+# Задача 1
 
-### 2. Локальный запуск для разработки
+Сделайте в своем GitHub пространстве fork репозитория.
 
-```bash
-# Создайте виртуальное окружение
-python3 -m venv venv
-source venv/bin/activate  # в Windows: venv\Scripts\activate
+Создайте файл Dockerfile.python на основе существующего Dockerfile:
 
-# Установите зависимости
-pip install -r requirements.txt
+Используйте базовый образ python:3.12-slim
+Обязательно используйте конструкцию COPY . . в Dockerfile
+Создайте .dockerignore файл для исключения ненужных файлов
+Используйте CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] для запуска
+Протестируйте корректность сборки
+(Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker, с помощью venv. (Mysql БД можно запустить в docker run).
 
-# Настройте переменные окружения для подключения к БД(не забудьте отдельно запустить БД)
-export DB_HOST='127.0.0.1'
-export DB_USER='app'  
-export DB_PASSWORD='very_strong'
-export DB_NAME='example'
+(Необязательная часть, *) Изучите код приложения и добавьте управление названием таблицы через ENV переменную.
 
-# Запустите приложение
-uvicorn main:app --host 0.0.0.0 --port 5000 --reload
-```
+ВНИМАНИЕ!
+!!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: Dockerfile.python, compose.yaml, .gitignore, .dockerignore,bash-скрипт. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
 
-**Требования для локального запуска:**
-- Python 3.12+
-- Запущенный сервер MySQL
-- База данных и пользователь, настроенные согласно переменным окружения
+# Решение 1
 
-## Настройка базы данных MySQL
+[1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.0.JPG);
+[1.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.1.JPG);
+[1.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.2.JPG);
+[1.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.3.JPG);
+[1.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/1.JPG);
 
-```sql
-CREATE DATABASE example;
-CREATE USER 'app'@'localhost' IDENTIFIED BY 'very_strong';
-GRANT ALL PRIVILEGES ON example.* TO 'app'@'localhost';
-FLUSH PRIVILEGES;
-```
+Задача 2 (*)
 
-## Доступные эндпоинты
+Задача 3
 
-- `GET /` - главная страница (записывает запрос в БД и возвращает время + IP)
-- `GET /requests` - просмотр всех записей из базы данных  
-- `GET /debug` - отладочная информация о заголовках запроса
-- `GET /docs` - автоматическая документация FastAPI (Swagger UI)
+Изучите файл "proxy.yaml"
+Создайте в репозитории с проектом файл compose.yaml. С помощью директивы "include" подключите к нему файл "proxy.yaml".
+Опишите в файле compose.yaml следующие сервисы:
+web. Образ приложения должен ИЛИ собираться при запуске compose из файла Dockerfile.python ИЛИ скачиваться из yandex cloud container registry(из задание №2 со *). Контейнер должен работать в bridge-сети с названием backend и иметь фиксированный ipv4-адрес 172.20.0.5. Сервис должен всегда перезапускаться в случае ошибок. Передайте необходимые ENV-переменные для подключения к Mysql базе данных по сетевому имени сервиса web
 
-## Переменные окружения
+db. image=mysql:8. Контейнер должен работать в bridge-сети с названием backend и иметь фиксированный ipv4-адрес 172.20.0.10. Явно перезапуск сервиса в случае ошибок. Передайте необходимые ENV-переменные для создания: пароля root пользователя, создания базы данных, пользователя и пароля для web-приложения.Обязательно используйте уже существующий .env file для назначения секретных ENV-переменных!
 
-| Переменная | Значение по умолчанию | Описание |
-|------------|----------------------|----------|
-| `DB_HOST` | `127.0.0.1` | Хост базы данных MySQL |
-| `DB_USER` | `app` | Пользователь БД |
-| `DB_PASSWORD` | `very_strong` | Пароль БД |
-| `DB_NAME` | `example` | Имя базы данных |
+Запустите проект локально с помощью docker compose , добейтесь его стабильной работы: команда curl -L http://127.0.0.1:8090 должна возвращать в качестве ответа время и локальный IP-адрес. Если сервисы не стартуют воспользуйтесь командами: docker ps -a  и docker logs <container_name> . Если вместо IP-адреса вы получаете информационную ошибку --убедитесь, что вы шлете запрос на порт 8090, а не 5000.
 
-## Проверка работы
+Подключитесь к БД mysql с помощью команды docker exec -ti <имя_контейнера> mysql -uroot -p<пароль root-пользователя>(обратите внимание что между ключем -u и логином root нет пробела. это важно!!! тоже самое с паролем) . Введите последовательно команды (не забываем в конце символ ; ): show databases; use <имя вашей базы данных(по-умолчанию example)>; show tables; SELECT * from requests LIMIT 10;.
 
-```bash
-# При правильной настройке через прокси
-curl http://localhost:8090
+Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
-# При прямом обращении (НЕПРАВИЛЬНО) 
-curl http://localhost:5000  
-# Получите подсказку о том, что нужно использовать порт 8090
-```
+# Решение 3
 
-## Лицензия
+[3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.JPG);
+[3.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.1.JPG);
+[3.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.2.JPG);
+[3.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.3.JPG);
+[3.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.4.JPG);
+[3.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.5.JPG);
+[3.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.6.JPG);
+[3.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/3.7.JPG);
 
-Этот проект распространяется под лицензией MIT (подробности в файле `LICENSE`).
+# Задача 4
+Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
+Подключитесь к Вм по ssh и установите docker.
+Напишите bash-скрипт, который скачает ваш fork-репозиторий в каталог /opt и запустит проект целиком.
+Зайдите на сайт проверки http подключений, например(или аналогичный): https://check-host.net/check-http и запустите проверку вашего сервиса http://<внешний_IP-адрес_вашей_ВМ>:8090. Таким образом трафик будет направлен в ingress-proxy. Трафик должен пройти через цепочки: Пользователь → Internet → Nginx → HAProxy → FastAPI(запись в БД) → HAProxy → Nginx → Internet → Пользователь
+(Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения docker ps -a
+Повторите SQL-запрос на сервере и приложите скриншот и ссылку на fork.
+
+# Решение 4
+
+[4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.1.JPG);
+[4.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.2.JPG);
+[4.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.3.JPG);
+[4.4](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.4.JPG);
+[4.5](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.5.JPG);
+[4.6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.JPG);
+[4.7](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/4.6.JPG);
+
+Задача 5 (*)
+
+# Задача 6
+Скачайте docker образ hashicorp/terraform:latest и скопируйте бинарный файл /bin/terraform на свою локальную машину, используя dive и docker save. Предоставьте скриншоты действий .
+
+# Решение
+
+[6](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.JPG);
+[6.1](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.1.JPG);
+[6.2](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.2.JPG);
+[6.3](https://github.com/daroutine/shvirtd-example-python/blob/main/screenshots/6.3.JPG);
+
+
+
+
+
+
+
+
+
